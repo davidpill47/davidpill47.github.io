@@ -28,43 +28,48 @@ Edit `src/pages/index.astro` to update your personal information:
 
 ```javascript
 const portfolioData = {
-  name: "Your Name",
-  title: "Your Title",
-  description: "Your description",
+  name: "David Pillco",
+  title: "Portafolio de David Pillco",
+  description: "Este es mi portafolio",
   avatarUrl: "/avatar.png",
-  location: "Your Location",
-  email: "your.email@example.com",
+  location: "Madrid - España",
+  email: "contact.davidpill@gmail.com",
   socialLinks: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    github: "https://github.com/davidpill47",
+    linkedin: "https://linkedin.com/in/dapillco47",
   },
   about: {
-    title: "About Me",
-    description: "Your about text",
+    title: "Sobre Mi",
+    description: `Ingeniero en Ciencias de la Computación con experiencia en proyectos, asistencia técnica, redes, creación de
+      software y desarrollo web. Centrado en la investigación aplicada y en las robustas competencias técnicas,
+      enfocadas en la creación de soluciones innovadoras y eficaces que perfeccionan procesos y elevan la calidad de
+      de procesos o servicios.`,
   },
 };
 ```
 
 ### 2. Add Your Avatar
 
-Add your profile picture as `public/avatar.png` (recommended size: 512x512px)
+Add your profile picture as `public/fotoperfil.jpeg` (recommended size: 512x512px)
 
 ### 3. Add Content
-
+Aqui el contenido 
 #### Work Experience
 
 Create markdown files in `src/content/work/`:
 
 ```markdown
 ---
-company: "Company Name"
-position: "Your Position"
-description: "What you did here"
-startDate: "2021-06-01"
-endDate: "2024-01-01"
-link: "https://company.com"
-logo: "/images/company-logo.png" # Optional
+company: "Cooperativa de Ahorro y Crédito Coopmego"
+position: "Asistente de Soporte Técnico"
+description: "- Resolución de incidencias de hardware y software para usuarios internos.
+  - Instalación, configuración y mantenimiento de estaciones de trabajo y periféricos.
+  - Soporte en aplicaciones de ofimática y sistemas de gestión interna.
+  - Mantenimiento preventivo y correctivo de la infraestructura tecnológica."
+startDate: "2024-01-01"
+endDate: "2024-07-01"
+link: "https://coopmego.com"
+logo: "/images/coopmego_logo.png"
 ---
 ```
 
