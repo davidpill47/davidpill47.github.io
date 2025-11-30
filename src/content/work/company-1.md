@@ -1,10 +1,12 @@
 ---
-title: "Tech Corp"
-subtitle: "Senior Full Stack Developer"
-logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Easton"
+title: "Cooperativa de Ahorro y Crédito Coopmego"
+subtitle: "Asistente de Soporte Técnico"
+# Importar el logo desde images
+
+logo: "https://coopmego.com/wp-content/uploads/2015/05/coopmego_logo@2x.png"
 startDate: "2021-06-01"
 endDate: "2024-01-01"
-link: "https://example.com"
+link: "https://coopmego.com"
 ---
 
 Led development of multiple high-impact web applications using React, Node.js, and PostgreSQL. Mentored junior developers and implemented best practices for code quality and testing.
