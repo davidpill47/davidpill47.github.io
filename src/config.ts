@@ -58,6 +58,8 @@ export interface SectionsConfig {
   work: boolean;
   /** Show/hide Education section */
   education: boolean;
+  /** Show/hide certification section */
+  certifications: boolean;
   /** Show/hide Hackathons section */
   hackathons: boolean;
   /** Show/hide Contact section */
