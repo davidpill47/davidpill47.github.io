@@ -1,9 +1,8 @@
 ---
-title: "Universidad Autónoma de Madrid"
-subtitle: "Maestrante en Sistemas Interactivos Inteligentes - Becado por Excelencia Académica"
+title: "Certificación Curso ITIL"
+subtitle: "ITIL FUNDATION – Integrate 45"
 logo: "/images/logo_uam.png"
-startDate: "2025-09-01"
-endDate: "2027-01-01"
+startDate: "2024-06-01"
 link: "https://www.uam.es/uam/inicio"
 ---
 
