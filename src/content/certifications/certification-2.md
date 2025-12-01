@@ -1,9 +1,8 @@
 ---
-title: "Universidad Técnica Particular de Loja"
-subtitle: "Ingenieria en Ciencias de la Computación"
-logo: "/images/logo_utpl.jpeg"
-startDate: "2018-04-07"
-endDate: "2023-04-27"
+title: "Switching, Routing, and Wireless Essentials"
+subtitle: "Cisco"
+logo: "/images/medalla.png"
+endDate: "2022-04-1"
 link: "https://www.utpl.edu.ec"
 ---
 

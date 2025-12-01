@@ -125,6 +125,7 @@ const entriesWithContent = await Promise.all(
                           href={entry.data.link}
                           target="_blank"
                           rel="noopener noreferrer"
+                          download={entry.data.download ?? (collection === "certifications")}
                           class="link link-hover"
                         >
                           {collection === "work"
@@ -183,6 +184,7 @@ const entriesWithContent = await Promise.all(
                       <a
                         href={entry.data.link}
                         target="_blank"
+                        download={entry.data.download ?? (collection === "certifications")}
                         class="link link-hover"
                       >
                         {collection === "work"
