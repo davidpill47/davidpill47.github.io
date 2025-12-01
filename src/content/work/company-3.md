@@ -1,9 +1,9 @@
 ---
 title: "Universidad Técnica Particular de Loja"
 subtitle: "Pasantía"
-logo: "@/assets/logo_utpl.jpeg"
+logo: "/images/logo_utpl.jpeg"
 startDate: "2022-01-10"
-endDate: "2023-04-31"
+endDate: "2023-04-30"
 link: "https://example.com"
 ---
 
