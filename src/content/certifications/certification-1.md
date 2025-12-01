@@ -3,7 +3,7 @@ title: "Certificación Curso ITIL"
 subtitle: "ITIL FUNDATION – Integrate 45"
 logo: "/images/medalla.png"
 endDate: "2024-06-01"
-link: "/files/ITILcertificado.pdf"
+link: "https://davidpill47.github.io/files/ITILcertificado.pdf"
 download: true
 ---
 
