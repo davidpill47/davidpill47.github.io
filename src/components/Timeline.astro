@@ -44,6 +44,25 @@ function formatPeriod(startDate: Date, endDate?: Date) {
   return `${start} - ${end}`;
 }
 
+function formatSingleDate(date?: Date) {
+  if (!date) return "";
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    year: "numeric",
+  };
+  return date.toLocaleDateString("en-US", options);
+}
+
+function displayDateForEntry(entry: any) {
+  // For certifications, show only the endDate (or startDate if endDate missing)
+  if (collection === "certifications") {
+    if (entry.data.endDate) return formatSingleDate(entry.data.endDate);
+    if (entry.data.startDate) return formatSingleDate(entry.data.startDate);
+    return "";
+  }
+  return formatPeriod(entry.data.startDate, entry.data.endDate);
+}
+
 // Render markdown content for each entry
 const entriesWithContent = await Promise.all(
   sortedEntries.map(async (entry) => {
@@ -79,7 +98,7 @@ const entriesWithContent = await Promise.all(
                 <time
                   class={`font-mono text-sm text-base-content/70 block italic ${index % 2 === 0 ? "text-end" : ""}`}
                 >
-                  {formatPeriod(entry.data.startDate, entry.data.endDate)}
+                  {displayDateForEntry(entry)}
                 </time>
                 <div class="card bg-base-100 shadow-xl mt-2">
                   <div class="card-body">
@@ -151,7 +170,7 @@ const entriesWithContent = await Promise.all(
                     </div>
 
                     <div class="text-sm text-base-content/70 font-mono whitespace-nowrap">
-                      {formatPeriod(entry.data.startDate, entry.data.endDate)}
+                      {displayDateForEntry(entry)}
                     </div>
                   </div>
                 </summary>
