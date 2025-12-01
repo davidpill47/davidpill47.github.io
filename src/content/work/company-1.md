@@ -2,7 +2,7 @@
 title: "Cooperativa de Ahorro y Crédito Coopmego"
 subtitle: "Asistente de Soporte Técnico"
 logo: "/images/coopmego_logo.jpeg"
-startDate: "2021-01-01"
+startDate: "2024-01-01"
 endDate: "2024-06-30"
 link: "https://coopmego.com"
 ---
