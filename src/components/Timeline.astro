@@ -120,28 +120,26 @@ const entriesWithContent = await Promise.all(
                       <Content />
                     </div>
                     {entry.data.link && (
-                      entry.data.viewInline ? (
-                        <div class="mt-4">
+                      <div class="card-actions justify-end mt-4 items-center">
+                        {entry.data.viewInline ? (
                           <details class="rounded-md border p-2">
-                            <summary class="cursor-pointer text-link">Ver certificado en la página</summary>
-                            <div class="mt-2">
-                              <iframe
-                                src={entry.data.link}
-                                class="w-full h-[600px]"
-                                frameborder="0"
-                                title={`viewer-${entry.slug}`}
-                              ></iframe>
-                            </div>
+                            <summary class="btn btn-ghost btn-sm">Ver certificado</summary>
+                              <div class="mt-2">
+                                <iframe
+                                  src={entry.data.link}
+                                  class="w-full"
+                                  style="height:80vh"
+                                  frameborder="0"
+                                  title={`viewer-${entry.slug}`}
+                                ></iframe>
+                              </div>
                           </details>
-                        </div>
-                      ) : (
-                        <div class="card-actions justify-end mt-4">
+                        ) : (
                           <a
                             href={entry.data.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            download={entry.data.download ?? (collection === "certifications")}
-                            class="link link-hover"
+                            class="btn btn-ghost btn-sm"
                           >
                             {collection === "work"
                               ? "Ver Empresa"
@@ -149,8 +147,18 @@ const entriesWithContent = await Promise.all(
                                 ? "Ver Certificado"
                                 : "Ver Institución"}
                           </a>
-                        </div>
-                      )
+                        )}
+
+                        {!entry.data.viewInline && (
+                          <a
+                            href={entry.data.link}
+                            download={entry.data.download ?? true}
+                            class="btn btn-outline btn-sm ml-2"
+                          >
+                            Descargar
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -196,27 +204,26 @@ const entriesWithContent = await Promise.all(
                     <Content />
                   </div>
                   {entry.data.link && (
-                    entry.data.viewInline ? (
-                      <div class="mt-2">
+                    <div class="flex justify-end items-center gap-2">
+                      {entry.data.viewInline ? (
                         <details class="rounded-md border p-2">
-                          <summary class="cursor-pointer text-link">Ver certificado en la página</summary>
+                          <summary class="btn btn-ghost btn-sm">Ver certificado</summary>
                           <div class="mt-2">
                             <iframe
                               src={entry.data.link}
-                              class="w-full h-[600px]"
+                              class="w-full"
+                              style="height:80vh"
                               frameborder="0"
                               title={`viewer-${entry.slug}`}
                             ></iframe>
                           </div>
                         </details>
-                      </div>
-                    ) : (
-                      <div class="flex justify-end">
+                      ) : (
                         <a
                           href={entry.data.link}
                           target="_blank"
-                          download={entry.data.download ?? (collection === "certifications")}
-                          class="link link-hover"
+                          rel="noopener noreferrer"
+                          class="btn btn-ghost btn-sm"
                         >
                           {collection === "work"
                             ? "Ver Empresa"
@@ -224,8 +231,18 @@ const entriesWithContent = await Promise.all(
                               ? "Ver Certificado"
                               : "Ver Institución"}
                         </a>
-                      </div>
-                    )
+                      )}
+
+                      {!entry.data.viewInline && (
+                        <a
+                          href={entry.data.link}
+                          download={entry.data.download ?? true}
+                          class="btn btn-outline btn-sm"
+                        >
+                          Descargar
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
               </details>
