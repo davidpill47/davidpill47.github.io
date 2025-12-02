@@ -29,7 +29,7 @@ const entries = await getCollection(collection);
 
 // Sort by start date (most recent first). For certifications without startDate, use endDate; if neither, put at end.
 const sortedEntries = entries.sort(
-  (a, b) => {
+  (a: any, b: any) => {
     const aDate = a.data.startDate ?? a.data.endDate;
     const bDate = b.data.startDate ?? b.data.endDate;
     return (bDate?.getTime() ?? 0) - (aDate?.getTime() ?? 0);
@@ -68,7 +68,7 @@ function displayDateForEntry(entry: any) {
 
 // Render markdown content for each entry
 const entriesWithContent = await Promise.all(
-  sortedEntries.map(async (entry) => {
+  sortedEntries.map(async (entry: any) => {
     const { Content } = await render(entry);
     return { entry, Content };
   })

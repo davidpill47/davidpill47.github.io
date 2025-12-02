@@ -98,7 +98,7 @@ export interface SiteConfig {
  */
 export const siteConfig: SiteConfig = {
   name: "David Pillco",
-  title: "Desarrollador y Analista de datos",
+  title: "Desarrollador y analista de datos",
   description:
     `Soy Ingeniero en Computación con experiencia en desarrollo, proyectos, soporte y análisis de datos. 
     Me especializo en crear soluciones técnicas innovadoras para optimizar procesos y mejorar la 
