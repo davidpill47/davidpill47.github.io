@@ -149,7 +149,7 @@ const entriesWithContent = await Promise.all(
                           </a>
                         )}
 
-                        {!entry.data.viewInline && (
+                        {!entry.data.viewInline && collection === "certifications" && (
                           <a
                             href={entry.data.link}
                             download={entry.data.download ?? true}
@@ -233,7 +233,7 @@ const entriesWithContent = await Promise.all(
                         </a>
                       )}
 
-                      {!entry.data.viewInline && (
+                      {!entry.data.viewInline && collection === "certifications" && (
                         <a
                           href={entry.data.link}
                           download={entry.data.download ?? true}
