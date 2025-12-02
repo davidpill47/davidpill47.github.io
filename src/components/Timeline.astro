@@ -27,9 +27,13 @@ const IconComponent = icon;
 // Load collection entries
 const entries = await getCollection(collection);
 
-// Sort by start date (most recent first)
+// Sort by start date (most recent first). For certifications without startDate, use endDate; if neither, put at end.
 const sortedEntries = entries.sort(
-  (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime()
+  (a, b) => {
+    const aDate = a.data.startDate ?? a.data.endDate;
+    const bDate = b.data.startDate ?? b.data.endDate;
+    return (bDate?.getTime() ?? 0) - (aDate?.getTime() ?? 0);
+  }
 );
 
 function formatPeriod(startDate: Date, endDate?: Date) {
