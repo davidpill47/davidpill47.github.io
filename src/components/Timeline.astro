@@ -27,9 +27,9 @@ const IconComponent = icon;
 // Load collection entries
 const entries = await getCollection(collection);
 
-// Sort by end date (most recent first). Entries without endDate go last.
+// Sort by start date (most recent first)
 const sortedEntries = entries.sort(
-  (a, b) => (b.data.endDate?.getTime() ?? 0) - (a.data.endDate?.getTime() ?? 0)
+  (a, b) => b.data.startDate.getTime() - a.data.startDate.getTime()
 );
 
 function formatPeriod(startDate: Date, endDate?: Date) {
