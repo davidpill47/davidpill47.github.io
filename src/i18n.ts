@@ -165,7 +165,7 @@ export const ui = {
     // ── Contact ─────────────────────────────────────────────
     contact: {
       title:       'Hablemos',
-      subtitle:    'Estoy abierto a nuevas oportunidades en Madrid. Si tienes un proyecto o una oferta interesante, escríbeme.',
+      subtitle:    'Estoy abierto a nuevas oportunidades. Si tienes un proyecto o una oferta interesante, escríbeme.',
       email:       'contact.davidpill@gmail.com',
       linkedin:    'linkedin.com/in/dapillco47',
       github:      'github.com/davidpill47',
@@ -334,7 +334,7 @@ export const ui = {
 
     contact: {
       title:       "Let's talk",
-      subtitle:    "I'm open to new opportunities in Madrid. If you have an interesting project or offer, reach out.",
+      subtitle:    "I'm open to new opportunities. If you have an interesting project or offer, reach out.",
       email:       'contact.davidpill@gmail.com',
       linkedin:    'linkedin.com/in/dapillco47',
       github:      'github.com/davidpill47',
