@@ -296,12 +296,24 @@ const t = ui[lang].contact
     btnText.textContent = '...'
     btn.disabled = true
 
-    await new Promise(r => setTimeout(r, 1000))
+    const data = new FormData(form)
+    const res = await fetch('https://formspree.io/f/xgorzjdg', {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    })
 
-    status.textContent = '✓ Mensaje enviado correctamente'
-    form.reset()
+    if (res.ok) {
+      status.textContent = '✓ Mensaje enviado correctamente'
+      status.style.color = '#0ea5a0'
+      form.reset()
+    } else {
+      status.textContent = '✗ Algo salió mal, intenta de nuevo'
+      status.style.color = '#e24b4a'
+    }
+
     btn.disabled = false
-    btnText.textContent = btn.dataset.label ?? 'Enviar mensaje'
+    btnText.textContent = document.documentElement.lang === 'en' ? 'Send message' : 'Enviar mensaje'
 
     setTimeout(() => { status.textContent = '' }, 4000)
   })
