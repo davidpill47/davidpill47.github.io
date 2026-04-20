@@ -1,0 +1,308 @@
+---
+import { ui, type Lang } from '../i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = ui[lang].contact
+---
+
+<section id="contact">
+  <div class="section__inner">
+    <h2 class="section__title">{t.title}</h2>
+
+    <div class="contact__layout">
+
+      <!-- Left: info -->
+      <div class="contact__info">
+        <p class="contact__subtitle">{t.subtitle}</p>
+
+        <div class="contact__links">
+          <a href={`mailto:${t.email}`} class="contact__link">
+            <div class="contact__link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact__link-text">
+              <span class="contact__link-label">Email</span>
+              <span class="contact__link-value">{t.email}</span>
+            </div>
+            <svg class="contact__link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+
+          <a href={`https://${t.linkedin}`} target="_blank" rel="noopener noreferrer" class="contact__link">
+            <div class="contact__link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="contact__link-text">
+              <span class="contact__link-label">LinkedIn</span>
+              <span class="contact__link-value">{t.linkedin}</span>
+            </div>
+            <svg class="contact__link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+
+          <a href={`https://${t.github}`} target="_blank" rel="noopener noreferrer" class="contact__link">
+            <div class="contact__link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </div>
+            <div class="contact__link-text">
+              <span class="contact__link-label">GitHub</span>
+              <span class="contact__link-value">{t.github}</span>
+            </div>
+            <svg class="contact__link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <form class="contact__form" id="contact-form">
+        <div class="form__group">
+          <label class="form__label" for="name">{t.formName}</label>
+          <input class="form__input" type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="email">{t.formEmail}</label>
+          <input class="form__input" type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="message">{t.formMessage}</label>
+          <textarea class="form__textarea" id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="form__btn">
+          <span class="form__btn-text">{t.formSend}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+
+        <p class="form__note" id="form-status"></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 5rem 2rem 7rem;
+  }
+
+  .contact__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3.5rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+
+  /* ── Info ── */
+  .contact__subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact__link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .contact__link:hover {
+    border-color: var(--color-accent);
+    transform: translateX(3px);
+  }
+
+  .contact__link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact__link-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .contact__link-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .contact__link-value {
+    font-size: 0.82rem;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact__link-arrow {
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .contact__link:hover .contact__link-arrow {
+    color: var(--color-accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* ── Form ── */
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1.75rem;
+  }
+
+  .form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form__label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .form__input,
+  .form__textarea {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.65rem 0.875rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: none;
+    width: 100%;
+  }
+
+  .form__input:focus,
+  .form__textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+  }
+
+  .form__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .form__btn:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+  }
+
+  .form__btn:active {
+    transform: translateY(0);
+  }
+
+  .form__note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--color-accent);
+    min-height: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact__layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement
+  const status = document.getElementById('form-status') as HTMLParagraphElement
+  const btn = form?.querySelector('.form__btn') as HTMLButtonElement
+  const btnText = form?.querySelector('.form__btn-text') as HTMLSpanElement
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    btnText.textContent = '...'
+    btn.disabled = true
+
+    await new Promise(r => setTimeout(r, 1000))
+
+    status.textContent = '✓ Mensaje enviado correctamente'
+    form.reset()
+    btn.disabled = false
+    btnText.textContent = btn.dataset.label ?? 'Enviar mensaje'
+
+    setTimeout(() => { status.textContent = '' }, 4000)
+  })
+</script>

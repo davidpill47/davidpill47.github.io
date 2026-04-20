@@ -1,0 +1,291 @@
+---
+import { ui, type Lang } from '../i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = ui[lang].education
+---
+
+<section id="education">
+  <div class="section__inner">
+    <h2 class="section__title">{t.title}</h2>
+
+    <div class="edu__layout">
+
+      <!-- Degrees -->
+      <div class="edu__col">
+        <p class="edu__col-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          {lang === 'es' ? 'Formación académica' : 'Academic background'}
+        </p>
+
+        <div class="degrees">
+          {t.degrees.map((deg) => (
+            <div class="degree-card">
+              <div class="degree-card__accent"></div>
+              <div class="degree-card__content">
+                <p class="degree-card__period">{deg.period}</p>
+                <h3 class="degree-card__title">{deg.degree}</h3>
+                <p class="degree-card__school">{deg.school}</p>
+                {deg.note && (
+                  <span class="degree-card__note">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    {deg.note}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="edu__col">
+        <p class="edu__col-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          {lang === 'es' ? 'Certificaciones' : 'Certifications'}
+        </p>
+
+        <div class="certs">
+          {t.certs.map((cert) => (
+            <div class="cert-card">
+              <div class="cert-card__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+              </div>
+              <div class="cert-card__info">
+                <p class="cert-card__name">{cert.name}</p>
+                <p class="cert-card__meta">
+                  <span>{cert.issuer}</span>
+                  <span class="cert-card__dot"></span>
+                  <span class="cert-card__year">{cert.year}</span>
+                </p>
+              </div>
+              {cert.year !== 'En progreso' && cert.year !== 'In progress' && (
+                <div class="cert-card__badge">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+              )}
+              {(cert.year === 'En progreso' || cert.year === 'In progress') && (
+                <div class="cert-card__badge cert-card__badge--pending">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .edu__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  .edu__col-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Degrees ── */
+  .degrees {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .degree-card {
+    display: flex;
+    gap: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .degree-card:hover {
+    border-color: var(--color-accent);
+    transform: translateX(3px);
+  }
+
+  .degree-card__accent {
+    width: 3px;
+    flex-shrink: 0;
+    background: var(--color-accent);
+    border-radius: 0;
+  }
+
+  .degree-card__content {
+    padding: 1rem 1.25rem;
+    flex: 1;
+  }
+
+  .degree-card__period {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.3rem;
+  }
+
+  .degree-card__title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+  }
+
+  .degree-card__school {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.4rem;
+  }
+
+  .degree-card__note {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+  }
+
+  /* ── Certs ── */
+  .certs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cert-card {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .cert-card:hover {
+    border-color: var(--color-accent);
+    transform: translateX(3px);
+  }
+
+  .cert-card__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .cert-card__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cert-card__name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cert-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cert-card__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-text-secondary);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  .cert-card__year {
+    color: var(--color-accent);
+  }
+
+  .cert-card__badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cert-card__badge--pending {
+    background: rgba(234, 179, 8, 0.1);
+    border-color: rgba(234, 179, 8, 0.3);
+    color: #ca8a04;
+  }
+
+  @media (max-width: 768px) {
+    .edu__layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import { ui, type Lang } from '../i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = ui[lang].about
+---
+
+<section id="about">
+  <div class="section__inner">
+    <h2 class="section__title">{t.title}</h2>
+
+    <div class="about__layout">
+      <p class="about__body">{t.body}</p>
+
+      <div class="about__stats">
+        <div class="stat">
+          <span class="stat__value">{t.stat1.value}</span>
+          <span class="stat__label">{t.stat1.label}</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">{t.stat2.value}</span>
+          <span class="stat__label">{t.stat2.label}</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">{t.stat3.value}</span>
+          <span class="stat__label">{t.stat3.label}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 5rem 2rem;
+    background: var(--color-surface);
+  }
+
+  .about__layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .about__body {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 620px;
+  }
+
+  .about__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    min-width: 110px;
+  }
+
+  .stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    .about__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .about__stats {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+</style>

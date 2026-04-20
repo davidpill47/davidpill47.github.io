@@ -1,0 +1,89 @@
+/* ─────────────────────────────────────────
+   global.css — Design tokens & base styles
+   David Pillco Portfolio
+───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  /* Fonts */
+  --font-display:    'Syne', sans-serif;
+  --font-mono:       'DM Mono', monospace;
+  --font-body:       'DM Sans', sans-serif;
+
+  /* Accent — electric teal */
+  --color-accent:       #0ea5a0;
+  --color-accent-hover: #0c9490;
+  --accent-rgb:         14, 165, 160;
+
+  /* Light mode */
+  --color-bg:           #f9f8f6;
+  --color-surface:      #ffffff;
+  --color-surface-2:    #f1f0ed;
+  --color-border:       #e2e0da;
+  --color-text-primary: #1a1916;
+  --color-text-secondary: #6b6860;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:           #0f0f0e;
+    --color-surface:      #181816;
+    --color-surface-2:    #222220;
+    --color-border:       #2e2d2a;
+    --color-text-primary: #f0ede8;
+    --color-text-secondary: #9c9890;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  padding: 5rem 2rem;
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section__title::after {
+  content: '.';
+  color: var(--color-accent);
+}
+
+.section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}

@@ -1,0 +1,236 @@
+---
+import { ui, type Lang } from '../i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = ui[lang].community
+---
+
+<section id="community">
+  <div class="section__inner">
+    <h2 class="section__title">{t.title}</h2>
+
+    <div class="community__card">
+      <div class="community__logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.48 10.92v2.83h4.63c-.19 1.22-.76 2.24-1.61 2.93v2.44h2.6c1.52-1.4 2.4-3.46 2.4-5.91 0-.57-.05-1.12-.14-1.64H12.48z" fill="#4285F4"/>
+          <path d="M12 21c2.43 0 4.47-.8 5.96-2.18l-2.6-2.02c-.88.59-2 .94-3.36.94-2.59 0-4.78-1.75-5.56-4.1H3.75v2.09C5.23 18.97 8.39 21 12 21z" fill="#34A853"/>
+          <path d="M6.44 13.64A5.44 5.44 0 0 1 6.2 12c0-.57.1-1.12.24-1.64V8.27H3.75A9.01 9.01 0 0 0 3 12c0 1.45.35 2.82.96 4.04l2.48-2.4z" fill="#FBBC05"/>
+          <path d="M12 6.58c1.46 0 2.77.5 3.8 1.49l2.85-2.85C16.46 3.63 14.42 3 12 3 8.39 3 5.23 5.03 3.75 7.96l2.69 2.09C7.22 7.7 9.41 6.58 12 6.58z" fill="#EA4335"/>
+        </svg>
+      </div>
+
+      <div class="community__content">
+        <div class="community__header">
+          <div>
+            <h3 class="community__org">{t.org}</h3>
+            <div class="community__meta">
+              <span class="community__role">{t.role}</span>
+              <span class="community__separator">·</span>
+              <span class="community__since">{t.since}</span>
+            </div>
+          </div>
+          <a
+            href={t.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="community__link"
+            aria-label="GDG on Campus UAM website"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            gdguam.es
+          </a>
+        </div>
+
+        <p class="community__desc">{t.desc}</p>
+
+        <div class="community__pills">
+          <span class="community__pill">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            {lang === 'es' ? 'Networking' : 'Networking'}
+          </span>
+          <span class="community__pill">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+            {lang === 'es' ? 'Workshops técnicos' : 'Technical workshops'}
+          </span>
+          <span class="community__pill">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Google Technologies
+          </span>
+          <span class="community__pill">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            {lang === 'es' ? 'Charlas técnicas' : 'Tech talks'}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .community__card {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .community__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(var(--accent-rgb), 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .community__card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .community__logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .community__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .community__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .community__org {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .community__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .community__role {
+    color: var(--color-accent);
+  }
+
+  .community__separator {
+    color: var(--color-text-secondary);
+    opacity: 0.4;
+  }
+
+  .community__since {
+    color: var(--color-text-secondary);
+  }
+
+  .community__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.35rem 0.75rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .community__link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .community__desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .community__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .community__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .community__pill:hover {
+    color: var(--color-accent);
+    border-color: rgba(var(--accent-rgb), 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .community__card {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+  }
+</style>

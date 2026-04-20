@@ -1,0 +1,198 @@
+---
+import { ui, type Lang } from '../i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = ui[lang].experience
+---
+
+<section id="experience">
+  <div class="section__inner">
+    <h2 class="section__title">{t.title}</h2>
+
+    <div class="timeline">
+      {t.jobs.map((job, i) => (
+        <div class="timeline__item" data-index={i}>
+          <div class="timeline__marker">
+            <div class="timeline__dot"></div>
+            {i < t.jobs.length - 1 && <div class="timeline__line"></div>}
+          </div>
+
+          <div class="timeline__card">
+            <div class="timeline__card-header">
+              <div>
+                <h3 class="timeline__role">{job.role}</h3>
+                <p class="timeline__company">
+                  <span class="timeline__company-name">{job.company}</span>
+                  <span class="timeline__separator">·</span>
+                  <span class="timeline__location">{job.location}</span>
+                </p>
+              </div>
+              <span class="timeline__period">{job.period}</span>
+            </div>
+
+            <ul class="timeline__bullets">
+              {job.bullets.map((bullet) => (
+                <li class="timeline__bullet">
+                  <span class="timeline__bullet-icon"></span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .timeline {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0 1.25rem;
+  }
+
+  /* ── Marker ── */
+  .timeline__marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .timeline__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    flex-shrink: 0;
+    transition: background 0.2s;
+    z-index: 1;
+  }
+
+  .timeline__item:hover .timeline__dot {
+    background: var(--color-accent);
+  }
+
+  .timeline__line {
+    width: 1px;
+    flex: 1;
+    background: var(--color-border);
+    margin: 4px 0;
+    min-height: 24px;
+  }
+
+  /* ── Card ── */
+  .timeline__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .timeline__item:hover .timeline__card {
+    border-color: var(--color-accent);
+    transform: translateX(3px);
+  }
+
+  .timeline__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline__role {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline__company {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .timeline__company-name {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .timeline__separator {
+    opacity: 0.4;
+  }
+
+  .timeline__period {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Bullets ── */
+  .timeline__bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline__bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .timeline__bullet-icon {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  @media (max-width: 600px) {
+    .timeline__card-header {
+      flex-direction: column;
+    }
+
+    .timeline__item {
+      grid-template-columns: 20px 1fr;
+      gap: 0 0.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,291 @@
+---
+import { ui, type Lang } from '../i18n'
+import '../styles/global.css'
+
+interface Props {
+  lang: Lang
+  title?: string
+}
+
+const { lang, title = 'David Pillco — IT Engineer' } = Astro.props
+const t = ui[lang].nav
+const isEn = lang === 'en'
+const langSwitch = isEn ? '/' : '/en'
+const langLabel = isEn ? 'ES' : 'EN'
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="David Pillco — IT Engineer | Systems, Networks & Software Development. Based in Madrid." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__inner">
+        <a href={isEn ? '/en' : '/'} class="navbar__logo">
+          <span class="navbar__logo-dot"></span>
+          David Pillco
+        </a>
+
+        <div class="navbar__links">
+          <a href="#about"      class="navbar__link">{t.about}</a>
+          <a href="#skills"     class="navbar__link">{t.skills}</a>
+          <a href="#experience" class="navbar__link">{t.experience}</a>
+          <a href="#projects"   class="navbar__link">{t.projects}</a>
+          <a href="#education"  class="navbar__link">{t.education}</a>
+          <a href="#community"  class="navbar__link">{t.community}</a>
+          <a href="#contact"    class="navbar__link">{t.contact}</a>
+        </div>
+
+        <div class="navbar__right">
+          <a href={langSwitch} class="navbar__lang">{langLabel}</a>
+          <button class="navbar__menu-btn" id="menu-btn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="navbar__mobile" id="mobile-menu">
+        <a href="#about"      class="navbar__mobile-link">{t.about}</a>
+        <a href="#skills"     class="navbar__mobile-link">{t.skills}</a>
+        <a href="#experience" class="navbar__mobile-link">{t.experience}</a>
+        <a href="#projects"   class="navbar__mobile-link">{t.projects}</a>
+        <a href="#education"  class="navbar__mobile-link">{t.education}</a>
+        <a href="#community"  class="navbar__mobile-link">{t.community}</a>
+        <a href="#contact"    class="navbar__mobile-link">{t.contact}</a>
+        <a href={langSwitch}  class="navbar__mobile-link navbar__mobile-lang">{langLabel}</a>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer__text">
+        David Pillco · {new Date().getFullYear()}
+      </p>
+      <p class="footer__sub">
+        Built with <span class="footer__accent">Astro</span> + <span class="footer__accent">Tailwind</span>
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* ── Navbar ── */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(var(--color-bg-rgb, 249, 248, 246), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.3s;
+  }
+
+  .navbar__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .navbar__logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .navbar__link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar__link:hover {
+    color: var(--color-accent);
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+
+  .navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .navbar__lang {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .navbar__lang:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  /* ── Hamburger ── */
+  .navbar__menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .navbar__menu-btn span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .navbar__menu-btn.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .navbar__menu-btn.open span:nth-child(2) { opacity: 0; }
+  .navbar__menu-btn.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+  /* ── Mobile menu ── */
+  .navbar__mobile {
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 2rem 1rem;
+    border-top: 1px solid var(--color-border);
+    gap: 0.1rem;
+  }
+
+  .navbar__mobile.open {
+    display: flex;
+  }
+
+  .navbar__mobile-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.2s;
+  }
+
+  .navbar__mobile-link:hover {
+    color: var(--color-accent);
+  }
+
+  .navbar__mobile-lang {
+    color: var(--color-accent);
+    border-bottom: none;
+    margin-top: 0.25rem;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer__text {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer__sub {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+  }
+
+  .footer__accent {
+    color: var(--color-accent);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .navbar__links { display: none; }
+    .navbar__menu-btn { display: flex; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('menu-btn')
+  const menu = document.getElementById('mobile-menu')
+
+  btn?.addEventListener('click', () => {
+    btn.classList.toggle('open')
+    menu?.classList.toggle('open')
+  })
+
+  // Close mobile menu when clicking a link
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      btn?.classList.remove('open')
+      menu.classList.remove('open')
+    })
+  })
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar')
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('scrolled')
+    } else {
+      navbar?.classList.remove('scrolled')
+    }
+  })
+</script>
