@@ -60,6 +60,22 @@ const t = ui[lang].about
     flex-direction: column;
     gap: 1.5rem;
   }
+  @media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about__stats {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    min-width: 80px;
+    flex: 1;
+  }
+}
 
   .stat {
     text-align: center;
