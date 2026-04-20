@@ -17,7 +17,7 @@ export const ui = {
     hero: {
       greeting:    'Hola, soy',
       name:        'David Pillco',
-      title:       'IT Engineer | Systems, Networks & Software Development',
+      title:       'Ingeniero IT | Sistemas, Redes y Desarrollo de Software',
       bio:         'Ingeniero en Ciencias de la Computación apasionado por crear soluciones tecnológicas y resolver problemas reales. Me muevo igual de bien planificando un proyecto desde cero que respondiendo ante lo inesperado. Con experiencia internacional en sistemas, redes y desarrollo de software — y formación en Data Science en Budapest y un Máster en la UAM — aporto una visión técnica amplia y un perfil versátil. Dicen que soy carismático y fácil de trabajar: creo que la tecnología se construye mejor en equipo, y eso se nota en cómo trabajo.',
       btnContact:  'Contáctame',
       btnCV:       'Descargar CV',
@@ -102,14 +102,14 @@ export const ui = {
           origin:   'Máster UAM',
           desc:     'Red neuronal convolucional para clasificar géneros a partir de imágenes faciales usando el dataset LFW. Comparé arquitectura propia desde cero vs. Transfer Learning, evaluando con métricas de precisión y curvas ROC.',
           tags:     ['Keras', 'TensorFlow', 'scikit-learn', 'Python', 'CNN'],
-          github:   'https://github.com/henrikfolz/apr_auto',
+          github:   'https://github.com/davidpill47/cnn-face-gender-classification',
         },
         {
           name:     'Seoul Bike Sharing Demand Prediction',
           origin:   'Máster UAM',
           desc:     'Modelo predictivo de demanda horaria de bicicletas en Seúl integrando variables climáticas y de calendario. Comparé modelos (Ridge, MLP, SVR) con validación cruzada y optimización de hiperparámetros.',
           tags:     ['scikit-learn', 'pandas', 'seaborn', 'Python', 'ML'],
-          github:   'https://github.com/henrikfolz/apr_auto',
+          github:   'https://github.com/davidpill47/seoul-bike-sharing-prediction',
         },
         {
           name:     'Automobile Dataset Analysis',
