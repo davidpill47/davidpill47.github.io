@@ -31,7 +31,7 @@ const langLabel = isEn ? 'ES' : 'EN'
     <nav class="navbar" id="navbar">
       <div class="navbar__inner">
         <a href={isEn ? '/en' : '/'} class="navbar__logo">
-          <span class="navbar__logo-dot"></span>
+          <img src="/favicon.png" alt="David Pillco logo" class="navbar__logo-img" />
           David Pillco
         </a>
 
@@ -119,11 +119,11 @@ const langLabel = isEn ? 'ES' : 'EN'
     flex-shrink: 0;
   }
 
-  .navbar__logo-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-accent);
+  .navbar__logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 4px;
   }
 
   .navbar__links {
