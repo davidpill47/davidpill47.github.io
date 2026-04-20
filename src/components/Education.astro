@@ -283,9 +283,20 @@ const t = ui[lang].education
   }
 
   @media (max-width: 768px) {
-    .edu__layout {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
+  .edu__layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
+
+  .degree-card {
+    overflow: hidden;
+  }
+
+  .cert-card__name {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  }
+  
 </style>
