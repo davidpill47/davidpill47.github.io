@@ -17,8 +17,8 @@ export const ui = {
     hero: {
       greeting:    'Hola, soy',
       name:        'David Pillco',
-      title:       'Ingeniero IT | Sistemas, Redes y Desarrollo de Software',
-      bio:         'Ingeniero en Ciencias de la Computación apasionado por crear soluciones tecnológicas y resolver problemas reales. Me muevo igual de bien planificando un proyecto desde cero que respondiendo ante lo inesperado. Con experiencia internacional en sistemas, redes y desarrollo de software — y formación en Data Science en Budapest y un Máster en la UAM — aporto una visión técnica amplia y un perfil versátil. Dicen que soy carismático y fácil de trabajar: creo que la tecnología se construye mejor en equipo, y eso se nota en cómo trabajo.',
+      title:       'Ingeniero en Computación | IA, Sistemas & Desarrollo de Software',
+      bio:         'Ingeniero en Ciencias de la Computación con experiencia internacional en sistemas, redes y desarrollo de software. Actualmente cursando un Máster en Sistemas Interactivos Inteligentes en la UAM con beca de excelencia, donde investigo aplicaciones de IA en educación y colaboro en publicaciones científicas. Miembro activo de GDG on Campus UAM. Me muevo bien planificando desde cero o respondiendo ante lo inesperado — y creo que la tecnología se construye mejor en equipo.',
       btnContact:  'Contáctame',
       btnCV:       'Descargar CV',
       location:    'Madrid, España',
@@ -29,7 +29,7 @@ export const ui = {
     // ── About ───────────────────────────────────────────────
     about: {
       title:   'Sobre mí',
-      body:    'Ingeniero en Ciencias de la Computación con experiencia internacional en sistemas, redes y desarrollo de software. Formado en Ecuador, Budapest y Madrid, combino sólidas bases técnicas con habilidades de programación y análisis de datos. Actualmente cursando un Máster en Sistemas Interactivos Inteligentes en la UAM con beca de excelencia.',
+      body:    'Ingeniero en Ciencias de la Computación con experiencia internacional en sistemas, redes y desarrollo de software. Formado en Ecuador, Budapest y Madrid, combino bases técnicas sólidas con habilidades en programación, análisis de datos e inteligencia artificial. Actualmente cursando un Máster en Sistemas Interactivos Inteligentes en la UAM con beca de excelencia, con enfoque en IA aplicada a la educación y sistemas adaptativos.',
       stat1:   { value: '3+',  label: 'años de experiencia' },
       stat2:   { value: '3',   label: 'países' },
       stat3:   { value: '4',   label: 'certificaciones' },
@@ -39,11 +39,12 @@ export const ui = {
     skills: {
       title: 'Habilidades',
       categories: [
-        { name: 'Sistemas & OS',    tags: ['Windows Server', 'Linux', 'macOS', 'Virtualización'],       level: 90 },
-        { name: 'Redes',            tags: ['Cisco', 'TCP/IP', 'LAN/WAN', 'VPN', 'RDP'],                level: 80 },
-        { name: 'Programación',     tags: ['Python', 'SQL', 'C++', 'Shell Scripting', 'ROS2'],          level: 75 },
-        { name: 'Herramientas IT',  tags: ['Jira', 'GLPI', 'TeamViewer', 'AnyDesk', 'Zabbix'],         level: 85 },
-        { name: 'IA & Data',        tags: ['Machine Learning', 'TensorFlow', 'OpenCV', 'scikit-learn'], level: 70 },
+        { name: 'Sistemas & OS',    tags: ['Windows Server', 'Linux', 'macOS', 'Virtualización'],                                    level: 90 },
+        { name: 'Redes',            tags: ['Cisco', 'TCP/IP', 'LAN/WAN', 'VPN', 'RDP'],                                             level: 80 },
+        { name: 'Programación',     tags: ['Python', 'SQL', 'C++', 'Shell Scripting', 'ROS2', 'JavaScript'],                         level: 75 },
+        { name: 'IA & Data',        tags: ['Machine Learning', 'TensorFlow', 'OpenCV', 'scikit-learn', 'LLMs', 'NLP'],               level: 75 },
+        { name: 'Herramientas IT',  tags: ['Jira', 'GLPI', 'TeamViewer', 'AnyDesk', 'Zabbix'],                                      level: 85 },
+        { name: 'Desarrollo Web',   tags: ['Astro', 'Tailwind CSS', 'HTML', 'Git', 'GitHub Actions'],                               level: 70 },
       ],
     },
 
@@ -117,6 +118,27 @@ export const ui = {
           desc:     'Análisis exploratorio y preprocesamiento de un dataset de automóviles. Limpieza de datos, imputación de valores faltantes, normalización y clasificación con modelos de Machine Learning.',
           tags:     ['pandas', 'scikit-learn', 'matplotlib', 'Python'],
           github:   'https://github.com/davidpill47/Automovile-Proyect',
+        },
+        {
+          name:     'Adaptech — Sistema Adaptativo de Tutoría',
+          origin:   'Máster UAM',
+          desc:     'Sistema inteligente de tutoría adaptativa que personaliza el contenido educativo según el perfil del estudiante. Desarrollado como proyecto de la asignatura Sistemas Adaptativos y Modelado de Usuarios.',
+          tags:     ['Python', 'IA', 'Sistemas Adaptativos', 'Machine Learning'],
+          github:   'https://github.com/davidpill47',
+        },
+        {
+          name:     'RoundTable — Toma de Decisiones en Grupo',
+          origin:   'Máster UAM',
+          desc:     'Aplicación web en tiempo real para facilitar la toma de decisiones colaborativa en grupo. Proyecto grupal del Máster con enfoque en interacción persona-ordenador y experiencia de usuario.',
+          tags:     ['JavaScript', 'Web', 'Tiempo real', 'UX'],
+          github:   'https://github.com/davidpill47',
+        },
+        {
+          name:     'eduPy — Generación Automática de Ejercicios Python',
+          origin:   'Investigación UAM',
+          desc:     'Extensión de Wodel-EDU para generar y evaluar automáticamente ejercicios de programación en Python mediante mutación de modelos. Trabajo de investigación en colaboración con profesores de la UAM, orientado a publicación científica.',
+          tags:     ['Python', 'MDE', 'LLMs', 'Educación', 'Wodel-EDU'],
+          github:   'https://github.com/davidpill47',
         },
       ],
     },
@@ -193,8 +215,8 @@ export const ui = {
     hero: {
       greeting:    "Hi, I'm",
       name:        'David Pillco',
-      title:       'IT Engineer | Systems, Networks & Software Development',
-      bio:         "Computer Science Engineer passionate about building technology and solving real-world problems. I'm equally comfortable planning projects from the ground up and staying sharp when things don't go as expected. With international experience across systems, networking, and software development — including Data Science studies in Budapest and a Master's at UAM — I bring both technical depth and adaptability. People say I'm charismatic and easy to work with: I genuinely believe technology is built better together, and that shows in how I work.",
+      title:       'Computer Science Engineer | AI, Systems & Software Development',
+      bio:         "Computer Science Engineer with international experience in systems, networking and software development. Currently pursuing a Master's in Intelligent Interactive Systems at UAM on an excellence scholarship, researching AI applications in education and co-authoring scientific publications. Active member of GDG on Campus UAM. I'm equally comfortable planning from scratch or adapting on the fly — and I genuinely believe technology is built better together.",
       btnContact:  'Contact me',
       btnCV:       'Download CV',
       location:    'Madrid, Spain',
@@ -204,7 +226,7 @@ export const ui = {
 
     about: {
       title: 'About me',
-      body:  "Computer Science Engineer with international experience in systems, networking and software development. Educated in Ecuador, Budapest and Madrid, I combine strong technical foundations with programming and data analysis skills. Currently pursuing a Master's in Intelligent Interactive Systems at UAM on an excellence scholarship.",
+      body:  "Computer Science Engineer with international experience in systems, networking and software development. Educated in Ecuador, Budapest and Madrid, I combine strong technical foundations with programming, data analysis and AI skills. Currently pursuing a Master's in Intelligent Interactive Systems at UAM on an excellence scholarship, focused on AI applied to education and adaptive systems.",
       stat1: { value: '3+', label: 'years of experience' },
       stat2: { value: '3',  label: 'countries' },
       stat3: { value: '4',  label: 'certifications' },
@@ -213,11 +235,12 @@ export const ui = {
     skills: {
       title: 'Skills',
       categories: [
-        { name: 'Systems & OS',     tags: ['Windows Server', 'Linux', 'macOS', 'Virtualization'],        level: 90 },
-        { name: 'Networking',       tags: ['Cisco', 'TCP/IP', 'LAN/WAN', 'VPN', 'RDP'],                 level: 80 },
-        { name: 'Programming',      tags: ['Python', 'SQL', 'C++', 'Shell Scripting', 'ROS2'],           level: 75 },
-        { name: 'IT Tools',         tags: ['Jira', 'GLPI', 'TeamViewer', 'AnyDesk', 'Zabbix'],          level: 85 },
-        { name: 'AI & Data',        tags: ['Machine Learning', 'TensorFlow', 'OpenCV', 'scikit-learn'],  level: 70 },
+        { name: 'Systems & OS',   tags: ['Windows Server', 'Linux', 'macOS', 'Virtualization'],                                   level: 90 },
+        { name: 'Networking',     tags: ['Cisco', 'TCP/IP', 'LAN/WAN', 'VPN', 'RDP'],                                            level: 80 },
+        { name: 'Programming',    tags: ['Python', 'SQL', 'C++', 'Shell Scripting', 'ROS2', 'JavaScript'],                        level: 75 },
+        { name: 'AI & Data',      tags: ['Machine Learning', 'TensorFlow', 'OpenCV', 'scikit-learn', 'LLMs', 'NLP'],              level: 75 },
+        { name: 'IT Tools',       tags: ['Jira', 'GLPI', 'TeamViewer', 'AnyDesk', 'Zabbix'],                                     level: 85 },
+        { name: 'Web Dev',        tags: ['Astro', 'Tailwind CSS', 'HTML', 'Git', 'GitHub Actions'],                              level: 70 },
       ],
     },
 
@@ -289,6 +312,27 @@ export const ui = {
           desc:   'Exploratory analysis and preprocessing of an automobile dataset. Data cleaning, missing value imputation, normalization and classification with Machine Learning models.',
           tags:   ['pandas', 'scikit-learn', 'matplotlib', 'Python'],
           github: 'https://github.com/davidpill47/Automovile-Proyect',
+        },
+        {
+          name:   'Adaptech — Adaptive Tutoring System',
+          origin: "Master's UAM",
+          desc:   'Intelligent adaptive tutoring system that personalizes educational content based on the student profile. Developed for the Adaptive Systems and User Modelling course.',
+          tags:   ['Python', 'AI', 'Adaptive Systems', 'Machine Learning'],
+          github: 'https://github.com/davidpill47',
+        },
+        {
+          name:   'RoundTable — Group Decision Making',
+          origin: "Master's UAM",
+          desc:   'Real-time web application for collaborative group decision-making. Group project focused on human-computer interaction and user experience design.',
+          tags:   ['JavaScript', 'Web', 'Real-time', 'UX'],
+          github: 'https://github.com/davidpill47',
+        },
+        {
+          name:   'eduPy — Automatic Python Exercise Generation',
+          origin: 'UAM Research',
+          desc:   'Extension of Wodel-EDU to automatically generate and grade Python programming exercises through model mutation. Research collaboration with UAM professors, aimed at scientific publication.',
+          tags:   ['Python', 'MDE', 'LLMs', 'Education', 'Wodel-EDU'],
+          github: 'https://github.com/davidpill47',
         },
       ],
     },
